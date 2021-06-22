@@ -38,12 +38,10 @@ const Favorite = {
 
   async addButtonListener(buttons) {
     buttons.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        (async () => {
-          const { id } = event.currentTarget.dataset;
-          await FavoriteRestaurantIdb.deleteRestaurant(id);
-          await this.getListFavorites();
-        })();
+      button.addEventListener('click', async (event) => {
+        const { id } = event.currentTarget.dataset;
+        await FavoriteRestaurantIdb.deleteRestaurant(id);
+        await this.getListFavorites();
       });
     });
   },
