@@ -14,23 +14,30 @@ const Favorite = {
     `;
   },
 
+  async clearRestaurantList(restaurants) {
+    const restaurantFavoriteContainer = document.querySelector('.favorite-restaurant-list');
+    if (restaurants.length > 0) {
+      restaurantFavoriteContainer.innerHTML = '';
+    } else if (restaurants.length === 0) {
+      restaurantFavoriteContainer.innerHTML = '<p class="text-center">Belum Ada Restaurant Favorite</p>';
+    }
+  },
+
   async getListFavorites() {
     const favoriteRestaurants = await FavoriteRestaurantIdb.getRestaurants();
     const restaurantFavoriteContainer = document.querySelector('.favorite-restaurant-list');
 
-    if (favoriteRestaurants.length > 0) {
-      restaurantFavoriteContainer.innerHTML = [];
-    }
+    this.clearRestaurantList(favoriteRestaurants);
     favoriteRestaurants.forEach((restaurant) => {
       restaurantFavoriteContainer.innerHTML += createFavoriteRestaurantItemTemplate(restaurant);
     });
-  },
-
-  async afterRender() {
-    await this.getListFavorites();
 
     const removeFavoriteBtns = document.querySelectorAll('.favorite-restaurant-card__body-remove-favorite');
-    removeFavoriteBtns.forEach((button) => {
+    this.addButtonListener(removeFavoriteBtns);
+  },
+
+  async addButtonListener(buttons) {
+    buttons.forEach((button) => {
       button.addEventListener('click', (event) => {
         (async () => {
           const { id } = event.currentTarget.dataset;
@@ -39,6 +46,10 @@ const Favorite = {
         })();
       });
     });
+  },
+
+  async afterRender() {
+    await this.getListFavorites();
   },
 };
 

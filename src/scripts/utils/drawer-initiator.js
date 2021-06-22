@@ -7,6 +7,12 @@ const DrawerInitiator = {
       this._animateDrawerNavItems(drawerNavItems);
     });
 
+    drawerNavItems.forEach((item) => {
+      item.addEventListener('click', (event) => {
+        this._closeDrawer(event, drawer);
+      });
+    });
+
     drawerButton.addEventListener('click', (event) => {
       this._closeDrawer(event, drawer);
     });
