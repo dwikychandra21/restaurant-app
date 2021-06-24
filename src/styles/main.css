@@ -67,7 +67,7 @@ header {
 header .header-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 /* header .header-wrapper > * {
@@ -79,7 +79,7 @@ nav#desk-nav {
   justify-content: space-between;
 }
 
-nav a {
+header a {
   padding: 14px 10px;
   text-decoration: none;
   color: #000;
