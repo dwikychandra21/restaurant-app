@@ -1,9 +1,10 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jasmine": true
   },
-  "extends": ["airbnb-base"],
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module"
@@ -11,5 +12,6 @@
   "rules": {
     "import/prefer-default-export": "off",
     "no-underscore-dangle": "off"
-  }
+  },
+  "plugins": ["jasmine", "prettier"]
 }

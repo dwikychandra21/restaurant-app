@@ -4,22 +4,24 @@
     <meta charset="UTF-8" />
     <title>FreshResto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FreshResto is the best place to discover fresh restaurant in the world" />
     <link rel="icon" href="./images/icons/vegan.svg" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      rel="preload"
     />
     <meta name="theme-color" content="#4CAF50"/>
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to Content</a>
+    <a rel="noreferrer" href="#main-content" class="skip-link">Skip to Content</a>
 
     <header>
       <div class="header-wrapper items-center mx-auto">
-        <a href="#/" class="text-decoration-none">
+        <a rel="noreferrer" href="#/" class="text-decoration-none">
           <div class="flex items-center logo">
             <img src="./images/icons/vegan.svg" width="36" alt="Fresh Resto Logo" /><span
               class="font-pp-semi-bold logo-text"
@@ -28,11 +30,11 @@
           </div>
         </a>
         <nav id="desk-nav">
-          <a href="#/">Home</a>
-          <a href="#/favorite">Favorites</a>
-          <a href="https://www.linkedin.com/in/dwiky-c-b735ab138/" target="_blank">About Us</a>
+          <a rel="noreferrer" href="#/">Home</a>
+          <a rel="noreferrer" href="#/favorite">Favorites</a>
+          <a rel="noreferrer" href="https://www.linkedin.com/in/dwiky-c-b735ab138/" target="_blank">About Us</a>
         </nav>
-        <button class="burger-menu">
+        <button class="burger-menu" aria-label="burger menu">
           <span></span>
           <span></span>
         </button>
@@ -40,9 +42,9 @@
       <!-- Mobile Drawer -->
       <div class="off-canvas-container">
         <nav class="off-canvas-navbar">
-          <a href="#/">Home</a>
-          <a href="https://www.linkedin.com/in/dwiky-c-b735ab138/" target="_blank">About Us</a>
-          <a href="#/favorite">Favorites</a>
+          <a rel="noreferrer" href="#/">Home</a>
+          <a rel="noreferrer" href="https://www.linkedin.com/in/dwiky-c-b735ab138/" target="_blank">About Us</a>
+          <a rel="noreferrer" href="#/favorite">Favorites</a>
         </nav>
         <button class="close-menu">
           <span></span>

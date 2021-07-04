@@ -8,7 +8,7 @@ const Favorite = {
         <h1>Your Favorites</h1>
 
         <div class="favorite-restaurant-list">
-          <p class="text-center">Belum Ada Restaurant Favorite</p>
+          <p class="restaurant-item-not-found text-center">Belum Ada Restaurant Favorite</p>
         </div>
       </div>
     `;
@@ -19,7 +19,7 @@ const Favorite = {
     if (restaurants.length > 0) {
       restaurantFavoriteContainer.innerHTML = '';
     } else if (restaurants.length === 0) {
-      restaurantFavoriteContainer.innerHTML = '<p class="text-center">Belum Ada Restaurant Favorite</p>';
+      restaurantFavoriteContainer.innerHTML = '<p class="restaurant-item-not-found text-center">Belum Ada Restaurant Favorite</p>';
     }
   },
 

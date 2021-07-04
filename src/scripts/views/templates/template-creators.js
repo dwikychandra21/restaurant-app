@@ -1,7 +1,7 @@
 import CONFIG from '../../globals/config';
 
 const createRestaurantItemTemplate = (restaurant) => `
-    <a href="#/detail/${restaurant.id}">
+    <a rel="noreferrer" href="#/detail/${restaurant.id}">
         <div class="restauran-card">
             <div class="restauran-card__header">
                 <div class="restauran-card__header__location flex items-center">
@@ -20,8 +20,8 @@ const createRestaurantItemTemplate = (restaurant) => `
                     ${restaurant.rating}
                 </div>
                 <img
-                    class='main-img'
-                    src='${CONFIG.BASE_IMG_URL}/${restaurant.pictureId}'
+                    class='main-img lazyload'
+                    data-src='${CONFIG.BASE_IMG_URL}/${restaurant.pictureId}'
                     alt='${restaurant.name} Image'
                 />
             </div>
@@ -113,7 +113,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   `;
 
 const createLikeButtonTemplate = () => `
-  <button type="button" id="likeButton" class="font-pp-semi-bold flex items-center justify-center">
+  <button type="button" id="likeButton" class="font-pp-semi-bold flex items-center justify-center" aria-label="like this restaurant">
     <img
       src="${CONFIG.BASE_EXTERNAL_IMG_URL}/heart-green-outline_lntkci.svg"
       width="16"
@@ -122,8 +122,8 @@ const createLikeButtonTemplate = () => `
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
-  <button type="button" id="likeButton" class="font-pp-semi-bold flex items-center justify-center">
+const createUnlikeButtonTemplate = () => `
+  <button type="button" id="likeButton" class="font-pp-semi-bold flex items-center justify-center" aria-label="unlike this restaurant">
     <img
       src="${CONFIG.BASE_EXTERNAL_IMG_URL}/heart-green_mpqrwo.svg"
       width="16"
@@ -135,13 +135,13 @@ const createLikedButtonTemplate = () => `
 const createFavoriteRestaurantItemTemplate = (restaurant) => `
   <div class="favorite-restaurant-card">
     <div class="favorite-restaurant-card__img-container">
-      <a href="#/detail/${restaurant.id}">
+      <a rel="noreferrer" href="#/detail/${restaurant.id}">
         <img src="${CONFIG.BASE_IMG_URL}/${restaurant.pictureId}" />
       </a>
     </div>
     <div class="favorite-restaurant-card__body">
-        <a href="#/detail/${restaurant.id}" class="text-decoration-none">
-          <h2>${restaurant.name} - ${restaurant.city}</h2>
+        <a rel="noreferrer" href="#/detail/${restaurant.id}" class="text-decoration-none">
+          <h2><span class="favorite-restaurant-card__name">${restaurant.name}</span> - ${restaurant.city}</h2>
         </a>
         <p>${restaurant.description.slice(0, 80)}...</p>
         <div class="favorite-restaurant-card__body-footer flex items-center justify-between">
@@ -163,7 +163,7 @@ const createFavoriteRestaurantItemTemplate = (restaurant) => `
 
 export {
   createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createUnlikeButtonTemplate,
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createFavoriteRestaurantItemTemplate,

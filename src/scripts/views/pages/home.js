@@ -5,7 +5,10 @@ const Home = {
   async render() {
     return `
       <div class="hero">
-          <img src="./images/heros/hero-image.jpg" alt="Hero Image" />
+          <picture>
+            <source media="(max-width: 600px)" srcset="./images/heros/hero-image-small.jpeg" type="image/jpg" />
+            <img src="./images/heros/hero-image.jpg" alt="Hero Image" />
+          </picture>
           <p class="hero-text font-pp-semi-bold">Always Fresh.</p>
       </div>
       <section class="restaurant-list-container">
