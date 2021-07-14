@@ -6,7 +6,9 @@ const createRestaurantItemTemplate = (restaurant) => `
             <div class="restauran-card__header">
                 <div class="restauran-card__header__location flex items-center">
                     <img
-                        src="${CONFIG.BASE_EXTERNAL_IMG_URL}/location_epvlzu.svg"
+                        src="${
+                          CONFIG.BASE_EXTERNAL_IMG_URL
+                        }/location_epvlzu.svg"
                         alt="Location Icon"
                         width="14"
                     />
@@ -38,7 +40,9 @@ const createRestaurantItemTemplate = (restaurant) => `
 const createRestaurantDetailTemplate = (restaurant) => `
         <div class="restaurant-detail__header">
             <div class="restaurant-detail__header-img">
-                <img src="https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}" alt="">
+                <img src="https://restaurant-api.dicoding.dev/images/medium/${
+                  restaurant.pictureId
+                }" alt="">
                 <div class="restaurant-detail__header-add2favorites">
                 </div>
             </div>
@@ -46,7 +50,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
               <h1>${restaurant.name} - ${restaurant.city}</h1>
               <p>${restaurant.description}</p>
               <p class="restaurant-detail__header-body-categories">
-                ${restaurant.categories.map((category) => category.name).join(', ')}
+                ${restaurant.categories
+                  .map((category) => category.name)
+                  .join(', ')}
               </p>
               <div class="restaurant-detail__header-body-rating-address flex items-center">
                   <span class="flex items-center mr-3">
@@ -60,7 +66,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
                   </span>
                   <span class="flex items-center">
                     <img
-                        src="${CONFIG.BASE_EXTERNAL_IMG_URL}/location_epvlzu.svg"
+                        src="${
+                          CONFIG.BASE_EXTERNAL_IMG_URL
+                        }/location_epvlzu.svg"
                         alt="Location Icon"
                         width="16"
                         class="mr-1"
@@ -83,12 +91,16 @@ const createRestaurantDetailTemplate = (restaurant) => `
               <div class="restaurant-detail__body-menu-details">
                   <div id="foods" class="restaurant-detail__body-menu-detail-content active">
                     <ul>
-                      ${restaurant.menus.foods.map((food) => `<li>${food.name}</li>`).join('')}
+                      ${restaurant.menus.foods
+                        .map((food) => `<li>${food.name}</li>`)
+                        .join('')}
                     </ul>
                   </div>
                   <div id="drinks" class="restaurant-detail__body-menu-detail-content">
                     <ul>
-                      ${restaurant.menus.drinks.map((deink) => `<li>${deink.name}</li>`).join('')}
+                      ${restaurant.menus.drinks
+                        .map((deink) => `<li>${deink.name}</li>`)
+                        .join('')}
                     </ul>
                   </div>
               </div>
@@ -97,7 +109,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
           <div class="restaurant-detail__body-reviews">
               <h2>Customer Reviews</h2>
               <div class="restaurant-detail__body-reviews-cards">
-                  ${restaurant.customerReviews.map((review) => `
+                  ${restaurant.customerReviews
+                    .map(
+                      (review) => `
                     <div class="restaurant-detail__body-reviews-cards__item">
                         <div class="restaurant-detail__body-reviews-cards__item-header flex items-center">
                           <p>
@@ -106,7 +120,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
                         </div>
                         <p class="restaurant-detail__body-reviews-cards__item-comment">${review.review}</p>
                     </div>
-                    `).join('')}
+                    `
+                    )
+                    .join('')}
               </div>
             </div>
         </div>
@@ -140,8 +156,12 @@ const createFavoriteRestaurantItemTemplate = (restaurant) => `
       </a>
     </div>
     <div class="favorite-restaurant-card__body">
-        <a rel="noreferrer" href="#/detail/${restaurant.id}" class="text-decoration-none">
-          <h2><span class="favorite-restaurant-card__name">${restaurant.name}</span> - ${restaurant.city}</h2>
+        <a rel="noreferrer" href="#/detail/${
+          restaurant.id
+        }" class="text-decoration-none">
+          <h2><span class="favorite-restaurant-card__name">${
+            restaurant.name
+          }</span> - ${restaurant.city}</h2>
         </a>
         <p>${restaurant.description.slice(0, 80)}...</p>
         <div class="favorite-restaurant-card__body-footer flex items-center justify-between">
@@ -153,8 +173,12 @@ const createFavoriteRestaurantItemTemplate = (restaurant) => `
               class="mr-1"
             /><p class="font-pp-medium">${restaurant.rating}</p>
           </div>
-          <button class="favorite-restaurant-card__body-remove-favorite" data-id="${restaurant.id}">
-            <img src="${CONFIG.BASE_EXTERNAL_IMG_URL}/trash-grey-outline_nymsm6.svg" width="20" />
+          <button class="favorite-restaurant-card__body-remove-favorite" data-id="${
+            restaurant.id
+          }">
+            <img src="${
+              CONFIG.BASE_EXTERNAL_IMG_URL
+            }/trash-grey-outline_nymsm6.svg" width="20" />
           </button>
         </div>
     </div>

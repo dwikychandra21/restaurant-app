@@ -3,9 +3,7 @@ import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 
 class App {
-  constructor({
-    button, drawer, drawerButton, drawerNavItems, content,
-  }) {
+  constructor({ button, drawer, drawerButton, drawerNavItems, content }) {
     this._button = button;
     this._drawer = drawer;
     this._drawerButton = drawerButton;
@@ -22,8 +20,6 @@ class App {
       drawerButton: this._drawerButton,
       drawerNavItems: this._drawerNavItems,
     });
-
-    // kita bisa menginisiasikan komponen lain bila ada
   }
 
   async renderPage() {

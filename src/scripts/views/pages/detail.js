@@ -11,13 +11,17 @@ const Detail = {
   },
 
   tabMenuClickHandler(event) {
-    const currentActiveTabElement = document.querySelector('.restaurant-detail__body-menu-item.active');
+    const currentActiveTabElement = document.querySelector(
+      '.restaurant-detail__body-menu-item.active'
+    );
     currentActiveTabElement.classList.remove('active');
     this.classList.add('active');
 
     const idTargetElement = event.target.dataset.target;
     const targetElement = document.querySelector(`${idTargetElement}`);
-    const currentActiveElement = document.querySelector('.restaurant-detail__body-menu-detail-content.active');
+    const currentActiveElement = document.querySelector(
+      '.restaurant-detail__body-menu-detail-content.active'
+    );
 
     currentActiveElement.classList.remove('active');
     targetElement.classList.add('active');
@@ -26,10 +30,14 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSource.getRestaurantDetail(url.id);
-    const restaurantDetailContainer = document.querySelector('#restaurant-detail');
-    restaurantDetailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+    const restaurantDetailContainer =
+      document.querySelector('#restaurant-detail');
+    restaurantDetailContainer.innerHTML =
+      createRestaurantDetailTemplate(restaurant);
 
-    const menuTabItems = document.querySelectorAll('.restaurant-detail__body-menu-item');
+    const menuTabItems = document.querySelectorAll(
+      '.restaurant-detail__body-menu-item'
+    );
     menuTabItems.forEach((item) => {
       item.addEventListener('click', this.tabMenuClickHandler);
     });
@@ -43,7 +51,9 @@ const Detail = {
       pictureId: restaurant.pictureId,
     };
     LikeButtonPresenter.init({
-      likeButtonContainer: document.querySelector('.restaurant-detail__header-add2favorites'),
+      likeButtonContainer: document.querySelector(
+        '.restaurant-detail__header-add2favorites'
+      ),
       restaurant: idbRestaurantPayload,
     });
   },

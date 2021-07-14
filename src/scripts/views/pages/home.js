@@ -26,9 +26,12 @@ const Home = {
 
   async afterRender() {
     const restaurants = await RestaurantSource.getRestaurantList();
-    const restaurantListContainer = document.querySelector('.restaurant-card-list-container');
+    const restaurantListContainer = document.querySelector(
+      '.restaurant-card-list-container'
+    );
     restaurants.forEach((restaurant) => {
-      restaurantListContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+      restaurantListContainer.innerHTML +=
+        createRestaurantItemTemplate(restaurant);
     });
   },
 };

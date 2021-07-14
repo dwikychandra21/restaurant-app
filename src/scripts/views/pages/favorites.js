@@ -15,24 +15,32 @@ const Favorite = {
   },
 
   async clearRestaurantList(restaurants) {
-    const restaurantFavoriteContainer = document.querySelector('.favorite-restaurant-list');
+    const restaurantFavoriteContainer = document.querySelector(
+      '.favorite-restaurant-list'
+    );
     if (restaurants.length > 0) {
       restaurantFavoriteContainer.innerHTML = '';
     } else if (restaurants.length === 0) {
-      restaurantFavoriteContainer.innerHTML = '<p class="restaurant-item-not-found text-center">Belum Ada Restaurant Favorite</p>';
+      restaurantFavoriteContainer.innerHTML =
+        '<p class="restaurant-item-not-found text-center">Belum Ada Restaurant Favorite</p>';
     }
   },
 
   async getListFavorites() {
     const favoriteRestaurants = await FavoriteRestaurantIdb.getRestaurants();
-    const restaurantFavoriteContainer = document.querySelector('.favorite-restaurant-list');
+    const restaurantFavoriteContainer = document.querySelector(
+      '.favorite-restaurant-list'
+    );
 
     this.clearRestaurantList(favoriteRestaurants);
     favoriteRestaurants.forEach((restaurant) => {
-      restaurantFavoriteContainer.innerHTML += createFavoriteRestaurantItemTemplate(restaurant);
+      restaurantFavoriteContainer.innerHTML +=
+        createFavoriteRestaurantItemTemplate(restaurant);
     });
 
-    const removeFavoriteBtns = document.querySelectorAll('.favorite-restaurant-card__body-remove-favorite');
+    const removeFavoriteBtns = document.querySelectorAll(
+      '.favorite-restaurant-card__body-remove-favorite'
+    );
     this.addButtonListener(removeFavoriteBtns);
   },
 
