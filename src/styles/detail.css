@@ -48,10 +48,11 @@
 }
 
 .restaurant-detail__body-menu-items span {
-  padding: 8px 20px;
+  padding: 12px 28px;
   display: inline-block;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .restaurant-detail__body-menu-items span.active {
